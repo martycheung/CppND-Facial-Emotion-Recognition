@@ -1,10 +1,11 @@
-# CPPND: Capstone Hello World Repo
+# Real-time Facial Emotion Recognition - CppND Capstone Project
 
-This is a starter repo for the Capstone project in the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213).
-
-The Capstone Project gives you a chance to integrate what you've learned throughout this program. This project will become an important part of your portfolio to share with current and future colleagues and employers.
-
-In this project, you can build your own C++ application starting with this repo, following the principles you have learned throughout this Nanodegree Program. This project will demonstrate that you can independently create applications using a wide range of C++ features.
+This is the source code for a realtime facial recognition application, which will be submitted for the capstone project of the Udacity C++ Nanodegree Program. Creating this app will involve the following steps:
+1. Build a deep learning model using Keras/Tensorflow in Python (try to make this quick since this is not a graded part of the project).
+2. Capture video using the laptop webcam in real-time using OpenCV.
+3. Use the face detector in OpenCV draw a bounding box around the face (region of interest).
+4. Deploy model using Tensorflow C++ API to do model inference on the image in the bounding box.
+5. Print the model prediction to the screen in real-time.
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
@@ -23,4 +24,4 @@ In this project, you can build your own C++ application starting with this repo,
 1. Clone this repo.
 2. Make a build directory in the top level directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
-4. Run it: `./HelloWorld`.
+4. Run it: `./emotion_detector`.
