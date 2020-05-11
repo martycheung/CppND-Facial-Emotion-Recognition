@@ -34,3 +34,4 @@
 # Ignore build directory
 /build/*
 /data/*
+.DS_Store
