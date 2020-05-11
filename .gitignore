@@ -33,3 +33,4 @@
 
 # Ignore build directory
 /build/*
+/data/*
