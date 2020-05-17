@@ -1,11 +1,19 @@
 # Real-time Facial Emotion Recognition - CppND Capstone Project
 
+## Introduction
 This is the source code for a realtime facial emotion recognition application, which will be submitted for the capstone project of the Udacity C++ Nanodegree Program. Creating this app will involve the following steps:
-1. Build a deep learning model using Keras/Tensorflow in Python (save the checkpoint of the trained model).
+1. Build a deep learning model using Keras/Tensorflow in Python (and save the checkpoint of the trained model).
 2. Capture video using the laptop webcam in real-time using OpenCV.
 3. Use the face detector in OpenCV draw a bounding box around the face (region of interest).
 4. Deploy model using Tensorflow C++ API to do model inference on the image in the bounding box.
 5. Print the model prediction to the screen in real-time.
+
+## Rubric Points Satisfied
+1. 
+2. 
+3. 
+4. 
+5. 
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
