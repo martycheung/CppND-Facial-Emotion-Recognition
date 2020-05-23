@@ -5,6 +5,7 @@ This is the source code for a realtime facial emotion recognition application, w
 1. Build a deep learning model using Keras/Tensorflow in Python (and save the checkpoint of the trained model).
 2. Capture video using the laptop webcam in real-time using OpenCV.
 3. Use the face detector in OpenCV draw a bounding box around the face (region of interest).
+4. Convert the region of interest to grayscale and resize to a 48x48 image, to match the input expected by the model.
 4. Deploy model using Tensorflow C++ API to do model inference on the image in the bounding box.
 5. Print the model prediction to the screen in real-time.
 
