@@ -27,6 +27,8 @@ This is the source code for a realtime facial emotion recognition application, w
   * Linux: gcc / g++ is installed by default on most Linux distros
   * Mac: same deal as make - [install Xcode command line tools](https://developer.apple.com/xcode/features/)
   * Windows: recommend using [MinGW](http://www.mingw.org/)
+* OpenCV == 4.3.0 (other versions may work but they are untested)
+* tensorflow
 
 ## Basic Build Instructions
 
