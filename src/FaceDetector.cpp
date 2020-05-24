@@ -10,16 +10,13 @@ FaceDetector::FaceDetector() {
 
 void FaceDetector::detectAndDraw( cv::Mat& img, std::string window_name) {
 
-    std::vector<cv::Rect> faces;
-    cv::Mat gray_img;
-
     cv::cvtColor( img, gray_img, cv::COLOR_BGR2GRAY );
     cv::equalizeHist( gray_img, gray_img );
 
     // Detect faces
     this->cascade.detectMultiScale( gray_img, faces, 1.1, 2, 0|cv::CASCADE_SCALE_IMAGE, cv::Size(100, 100) );
 
-    for ( size_t i = 0; i < faces.size(); i++ ){
+    for (size_t i = 0; i < faces.size(); i++) {
         cv::Rect r = faces[i];
 
         // draw rectangle around face
@@ -28,8 +25,8 @@ void FaceDetector::detectAndDraw( cv::Mat& img, std::string window_name) {
                      cv::Point(r.x + r.width, r.y + r.height),
                      cv::Scalar(255, 0, 0), 3, 8, 0);
 
-        cv::Rect roi(r.x, r.y,r.width,r.height );
-        roi_image = img(roi);
+        cv::Rect roi(r.x, r.y,r.width,r.height);
+        roi_images.push_back(img(roi));
 
     }
 

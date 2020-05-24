@@ -10,14 +10,15 @@ class FaceDetector {
 public:
 
     FaceDetector();
-
     void detectAndDraw( cv::Mat& img, std::string window_name);
 
 private:
     cv::CascadeClassifier cascade;
     double scale;
 
-    cv::Mat roi_image;
+    std::vector<cv::Mat> roi_images;
+    std::vector<cv::Rect> faces;
+    cv::Mat gray_img;
 
 };
 
