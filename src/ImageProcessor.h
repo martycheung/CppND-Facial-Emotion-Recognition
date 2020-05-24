@@ -1,9 +1,8 @@
-#ifndef VIDEO_H
-#define VIDEO_H
+#ifndef IMAGEPROCESSOR_H
+#define IMAGEPROCESSOR_H
 
 #include <opencv2/opencv.hpp>
 #include <iostream>
-#include "FaceDetector.h"
 
 class Video {
 

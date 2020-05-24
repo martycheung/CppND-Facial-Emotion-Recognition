@@ -1,8 +1,6 @@
 #include <opencv2/opencv.hpp>
 #include "FaceDetector.h"
 
-using namespace cv;
-
 FaceDetector::FaceDetector() {
 
      // Load the cascade classifier
@@ -10,27 +8,41 @@ FaceDetector::FaceDetector() {
     this->scale=1.5;
 }
 
-void FaceDetector::detectAndDraw( Mat& img, std::string window_name) {
+void FaceDetector::detectAndDraw( cv::Mat& img, std::string window_name) {
 
-    std::vector<Rect> faces;
-    Mat gray_img;
+    std::vector<cv::Rect> faces;
+    cv::Mat gray_img;
 
-    cvtColor( img, gray_img, COLOR_BGR2GRAY );
-    equalizeHist( gray_img, gray_img );
+    cv::cvtColor( img, gray_img, cv::COLOR_BGR2GRAY );
+    cv::equalizeHist( gray_img, gray_img );
 
     // Detect faces
-    this->cascade.detectMultiScale( gray_img, faces, 1.1, 2, 0|CASCADE_SCALE_IMAGE, Size(100, 100) );
+    this->cascade.detectMultiScale( gray_img, faces, 1.1, 2, 0|cv::CASCADE_SCALE_IMAGE, cv::Size(100, 100) );
 
     for ( size_t i = 0; i < faces.size(); i++ ){
-        Rect r = faces[i];
+        cv::Rect r = faces[i];
 
         // draw rectangle around face
         rectangle(img,
-                     Point(r.x, r.y),
-                     Point(r.x + r.width, r.y + r.height),
-                     Scalar(255, 0, 0), 3, 8, 0);
+                     cv::Point(r.x, r.y),
+                     cv::Point(r.x + r.width, r.y + r.height),
+                     cv::Scalar(255, 0, 0), 3, 8, 0);
+
+        cv::Rect roi(r.x, r.y,r.width,r.height );
+        roi_image = img(roi);
+
     }
 
-    imshow (window_name, img);
+
+    // Mat resized;
+
+    // if (roi_image.size().width>0 && roi_image.size().height>0) {
+    //     resize(roi_image, resized, Size(720, 720), 0, 0, INTER_LINEAR);
+    //     imshow (window_name, resized);
+    // }
+
+    if (img.size().width>0 && img.size().height>0) {
+        imshow (window_name, img);
+    }
 
 }

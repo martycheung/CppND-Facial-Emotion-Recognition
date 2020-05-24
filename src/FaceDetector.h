@@ -1,5 +1,7 @@
+#ifndef FACEDETECTOR_H
+#define FACEDETECTOR_H
+
 #include <opencv2/opencv.hpp>
-using namespace cv;
 
 extern const std::string OPENCV_PATH;
 
@@ -9,10 +11,14 @@ public:
 
     FaceDetector();
 
-    void detectAndDraw( Mat& img, std::string window_name);
+    void detectAndDraw( cv::Mat& img, std::string window_name);
 
 private:
-    CascadeClassifier cascade;
+    cv::CascadeClassifier cascade;
     double scale;
 
+    cv::Mat roi_image;
+
 };
+
+#endif

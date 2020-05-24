@@ -3,8 +3,6 @@
 #include "FaceDetector.h"
 #include "Video.h"
 
-using namespace cv;
-
 // Update this with the path to your opencv directory
 const std::string OPENCV_PATH = "/Users/martincheung/Documents/CMake/opencv-4.3.0/";
 
@@ -13,11 +11,10 @@ int main(int argc, char* argv[])
 
     // Show camera + face detection
     Video vid;
-
     vid.startShowVideo();
 
-
     // Process Images 
+    
 
     // Model Inference
 
@@ -26,6 +23,6 @@ int main(int argc, char* argv[])
 
  
 
- return 0;
+    return 0;
 
 }
