@@ -69,7 +69,6 @@ int main()
     Camera cam("Martin's Laptop Camera");
     cam.displayVideo();    
     
-
     return 0;
 
 }

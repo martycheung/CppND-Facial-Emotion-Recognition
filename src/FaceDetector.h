@@ -12,7 +12,8 @@ class FaceDetector {
 public:
 
     FaceDetector();
-    Image detectFaceAndDrawRoi( cv::Mat& img);
+    Image detectFaceAndDrawRoi( cv::Mat& frame);
+    Image addPredictionTexttoFrame( Image image_and_ROI, std::string& emotion_prediction);
 
 private:
     cv::CascadeClassifier cascade;

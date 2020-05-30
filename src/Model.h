@@ -3,6 +3,7 @@
 
 #include <opencv2/opencv.hpp>
 #include <iostream>
+#include "Image.h"
 
 /**
  * Model class that contains code to read the pretrained tensorflow model and allows
@@ -12,9 +13,12 @@ class Model {
 public:
     Model(const std::string& model_filename);
 
-    void Predict(cv::Mat& roi_image);
+    std::string predict(Image& image);
 
 private:
+
+    cv::dnn::Net network;
+    std::map<int, std::string> classid_to_string;
 
 };
 

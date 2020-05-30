@@ -1,10 +1,12 @@
 #include <opencv2/opencv.hpp>
 #include <iostream>
 #include "Camera.h"
+#include "Model.h"
 
 cv::VideoCapture cap(0);		// The openCV camera object...
 
-Camera::Camera(const std::string& window_name) : window_name(window_name) {
+Camera::Camera(const std::string& window_name) : window_name(window_name), 
+                                                 model("/Users/martincheung/Desktop/Learning Resources/C++ Nanodegree/CppND-Facial-Emotion-Recognition/model/saved_model.pb") {
 
     frameWidth = cap.get(cv::CAP_PROP_FRAME_WIDTH); //get the width of frames of the video
     frameHeight = cap.get(cv::CAP_PROP_FRAME_HEIGHT); //get the height of frames of the video
@@ -32,6 +34,14 @@ void Camera::displayVideo() {
 
         //Run Face Detection and draw bounding box
         image_and_ROI = detector.detectFaceAndDrawRoi( frame);
+
+        // Preprocess image ready for model
+        image_and_ROI.preprocessROI();
+
+        // Make Prediction
+        std::string emotion_prediction = model.predict(image_and_ROI);
+
+        image_and_ROI = detector.addPredictionTexttoFrame(image_and_ROI, emotion_prediction);
 
         cv::Mat video_frame = image_and_ROI.getFrame();
 

@@ -21,12 +21,15 @@ public:
     void setROI(cv::Mat& roi_image);
     cv::Mat getFrame();
     void setFrame(cv::Mat& frame);
-    void preprocess();
+    void preprocessROI();
+
+    cv::Mat getModelInput();
 
 private:
     
     cv::Mat _frame;
     cv::Mat _roi_image;
+    cv::Mat _model_input_image;
 
 };
 

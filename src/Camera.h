@@ -5,7 +5,7 @@
 #include <iostream>
 #include "FaceDetector.h"
 #include "Model.h"
-#Include "Image.h"
+#include "Image.h"
 
 class Camera {
 
@@ -18,6 +18,7 @@ public:
 
 private:
     FaceDetector detector;
+    Model model;
     
     double frameWidth;
     double frameHeight;
