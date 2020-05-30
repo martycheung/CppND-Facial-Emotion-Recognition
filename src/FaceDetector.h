@@ -3,6 +3,8 @@
 
 #include <opencv2/opencv.hpp>
 
+#include "Image.h"
+
 extern const std::string OPENCV_PATH;
 
 class FaceDetector {
@@ -10,16 +12,14 @@ class FaceDetector {
 public:
 
     FaceDetector();
-    void detectAndDraw( cv::Mat& img, std::string window_name);
+    Image detectFaceAndDrawRoi( cv::Mat& img);
 
 private:
     cv::CascadeClassifier cascade;
     double scale;
 
-    std::vector<cv::Mat> roi_images;
     std::vector<cv::Rect> faces;
-    cv::Mat gray_img;
-
+    
 };
 
 #endif
