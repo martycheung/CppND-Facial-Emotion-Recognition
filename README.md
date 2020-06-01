@@ -3,7 +3,7 @@
 ## Introduction
 This is the source code for a realtime facial emotion recognition application, which will be submitted for the capstone project of the Udacity C++ Nanodegree Program. The application will capture video from the laptop camera and recognise the facial expression or emotion displayed by the person's face. The user will be able to see the facial emotion prediction displayed on their screen in real-time.
 
-**ADD a gif of the app working here**
+**ADD a gif or image of the app working here**
 
 ## Detailed Description
 Creating this app will involve the following steps:
@@ -19,9 +19,12 @@ In order to make the code more efficient, the C++ code will be run in 2 threads.
 <img src="images/code_structure.png"/>
 
 ## Rubric Points Satisfied
-1. The project demonstrates an understanding of C++ functions and control structures - throughout project there are a variety of loops, functions etc.
-2. The project reads data from a file and process the data, or the program writes data to a file - the project reads in data from laptop
-3. 
+1. The project demonstrates an understanding of C++ functions and control structures.
+- throughout project there are a variety of loops, functions etc.
+2. The project reads data from a file and process the data, or the program writes data to a file.
+- the project reads in data from laptop camera, from external Tensorflow model and from an OpenCV face detector model.
+3. The project uses Object Oriented Programming techniques.
+-
 4. 
 5. 
 
