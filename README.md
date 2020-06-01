@@ -20,12 +20,13 @@ In order to make the code more efficient, the C++ code will be run in 2 threads.
 
 ## Rubric Points Satisfied
 1. The project demonstrates an understanding of C++ functions and control structures.
-- throughout project there are a variety of loops, functions etc.
+    - throughout project there are a variety of loops, functions etc.
 2. The project reads data from a file and process the data, or the program writes data to a file.
-- the project reads in data from laptop camera, from external Tensorflow model and from an OpenCV face detector model.
+    - the project reads in data from laptop camera, from external Tensorflow model and from an OpenCV face detector model.
 3. The project uses Object Oriented Programming techniques.
--
-4. 
+    - Class structure consists of Image, FaceDetector and Model classes.
+4. Classes use appropriate access specifiers for class members.
+    
 5. 
 
 ## Dependencies for Running Locally (this project was run and tested on Mac)
