@@ -17,16 +17,24 @@ public:
     //Destructor
     ~Image() {};
 
+    // Getter for the ROI image
     cv::Mat getROI();
+    // Setter for the ROI image
     void setROI(cv::Mat& roi_image);
+    // Getter for the video frame
     cv::Mat getFrame();
+    // Setter for the video frame
     void setFrame(cv::Mat& frame);
+    // Function to preprocess image for model input
     void preprocessROI();
-
+    // Save the original raw video frame without the bounding box or text
+    void setOriginalFrame(cv::Mat& original_frame);
+    // Getter for the model input image
     cv::Mat getModelInput();
 
 private:
     
+    cv::Mat _original_frame;
     cv::Mat _frame;
     cv::Mat _roi_image;
     cv::Mat _model_input_image;

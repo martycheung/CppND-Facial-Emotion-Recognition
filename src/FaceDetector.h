@@ -17,14 +17,13 @@ public:
     // Constructor loads the cascade face detection classifier
     FaceDetector();
 
-    // Destructor
-    ~FaceDetector() {};
-
     // Function that runs face detection and draws the bounding box
-    Image detectFaceAndDrawRoi( cv::Mat& frame);
+    void detectFace(cv::Mat& frame);
+
+    Image drawBoundingBoxOnFrame(cv::Mat& frame);
 
     // Function that print the predicted label to the image frame
-    Image printPredictionTexttoFrame( Image& image_and_ROI, std::string& emotion_prediction);
+    Image printPredictionTextToFrame( Image& image_and_ROI, std::string& emotion_prediction);
 
 private:
     // Face detection classifier
