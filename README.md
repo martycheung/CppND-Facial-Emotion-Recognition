@@ -16,7 +16,7 @@ Creating this app will involve the following steps:
 7. Display the video captured, along with the bounding box and the model prediction to the screen.
 
 In order to make the code more efficient, the C++ code will be run in 2 threads. The 1st thread will consist of the video capture, face detection and drawing bounding box and video display, while the 2nd thread  will consist of preprocessing the image and model prediction. The result of the model prediction string will be fed back to the video display when it is ready. The c++ code structure is shown in the diagram below:
-<img src="images/code_structure.png"/>
+<img src="images/code_structure_threads.png"/>
 
 **TODO: Try to add multithreading to the program**
 
