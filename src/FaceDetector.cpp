@@ -24,19 +24,11 @@ Image FaceDetector::detectFaceAndDrawRoi( cv::Mat& frame) {
         
         cv::Rect r = faces[0];
 
-        // // draw rectangle around face
-        // rectangle(frame,
-        //             cv::Point(r.x, r.y),
-        //             cv::Point(r.x + r.width, r.y + r.height),
-        //             cv::Scalar(255, 0, 0), 3, 8, 0);
-        
-        cv::putText(frame, //target image
-                    "Prediction", //text - will take the output of the model.inference()
-                    cv::Point(r.x, r.y-10), //top-left position
-                    cv::FONT_HERSHEY_DUPLEX,
-                    1.0,
-                    CV_RGB(118, 185, 0), //font color
-                    2);
+        // draw rectangle around face
+        rectangle(frame,
+                    cv::Point(r.x, r.y),
+                    cv::Point(r.x + r.width, r.y + r.height),
+                    cv::Scalar(255, 0, 0), 3, 8, 0);
 
         cv::Rect roi_coord(r.x, r.y,r.width,r.height);
 
@@ -60,11 +52,14 @@ Image FaceDetector::addPredictionTexttoFrame( Image image_and_ROI, std::string& 
     if (faces.size() > 0) { 
         cv::Rect r = faces[0];
 
-        // draw rectangle around face
-        rectangle(img,
-                    cv::Point(r.x, r.y),
-                    cv::Point(r.x + r.width, r.y + r.height),
-                    cv::Scalar(255, 0, 0), 3, 8, 0);
+        // Write text prediction on bounding box
+        cv::putText(img, //target image
+                    emotion_prediction, //text - will take the output of the model.inference()
+                    cv::Point(r.x, r.y-10), //top-left position
+                    cv::FONT_HERSHEY_DUPLEX,
+                    1.0,
+                    CV_RGB(118, 185, 0), //font color
+                    2);
     }
 
     image_and_ROI.setFrame(img);

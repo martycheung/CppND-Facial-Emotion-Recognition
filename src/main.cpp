@@ -66,8 +66,14 @@ int main()
     // Thread 2: Visualise Video Feed and Prediction  
     // Show camera + face detection - and if prediction exists, print text
 
-    Camera cam("Martin's Laptop Camera");
+    std::string model_filename = "../model/saved_model_31052020.pb";
+
+    Model model(model_filename);
+    Camera cam("Martin's Laptop Camera", model);
     cam.displayVideo();    
+
+    // cv::dnn::Net network = cv::dnn::readNetFromTensorflow("/Users/martincheung/Desktop/Learning Resources/C++ Nanodegree/CppND-Facial-Emotion-Recognition/model/saved_model.pb");
+
     
     return 0;
 

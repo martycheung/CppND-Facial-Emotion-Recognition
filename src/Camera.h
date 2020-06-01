@@ -11,7 +11,7 @@ class Camera {
 
 public: 
 
-    Camera(const std::string& window_name);
+    Camera(const std::string& window_name, Model& model);
 
     void captureVideo();
     void  displayVideo();
