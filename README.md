@@ -1,8 +1,13 @@
 # Real-time Facial Emotion Recognition - CppND Capstone Project
 
 ## Introduction
-This is the source code for a realtime facial emotion recognition application, which will be submitted for the capstone project of the Udacity C++ Nanodegree Program. Creating this app will involve the following steps:
-1. Build a deep learning model using Keras/Tensorflow in Python. Freeze and save the model graph and weights as a .pb file. (See [here](https://github.com/martycheung/CppND-Facial-Emotion-Recognition/tree/master/model) for more details on how I built the model and the jupyter notebooks, but note that this was not in scope of the Udacity project)
+This is the source code for a realtime facial emotion recognition application, which will be submitted for the capstone project of the Udacity C++ Nanodegree Program. The application will capture video from the laptop camera and recognise the facial expression or emotion displayed by the person's face. The user will be able to see the facial emotion prediction displayed on their screen in real-time.
+
+**ADD a gif of the app working here**
+
+## Detailed Description
+Creating this app will involve the following steps:
+1. Build a deep learning model using Keras/Tensorflow in Python. Freeze and save the model graph and weights as a .pb file. (See [here](https://github.com/martycheung/CppND-Facial-Emotion-Recognition/tree/master/model) for more details on how I built the model, the dataset and source code, but note that this was not in scope of the Udacity project)
 2. Capture video using the laptop webcam in real-time using OpenCV.
 3. Use the cascade face detector in OpenCV to detect a face and its location (for simplicity, one face will be detected at a time).
 4. Draw a rectangular bounding box around the face (region of interest).
@@ -14,8 +19,8 @@ In order to make the code more efficient, the C++ code will be run in 2 threads.
 <img src="images/code_structure.png"/>
 
 ## Rubric Points Satisfied
-1. 
-2. 
+1. The project demonstrates an understanding of C++ functions and control structures - throughout project there are a variety of loops, functions etc.
+2. The project reads data from a file and process the data, or the program writes data to a file - the project reads in data from laptop
 3. 
 4. 
 5. 
