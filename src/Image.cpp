@@ -1,8 +1,6 @@
 #include <opencv2/opencv.hpp>
-#include "Image.h"
 
-Image::Image() {
-}
+#include "Image.h"
 
 cv::Mat Image::getFrame() {
     return this->_frame;

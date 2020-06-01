@@ -7,73 +7,75 @@
 #include <mutex>
 
 #include "FaceDetector.h"
-#include "Camera.h"
 #include "Image.h"
+#include "Model.h"
 
 // Update this with the path to your opencv directory
-const std::string OPENCV_PATH = "/Users/martincheung/Documents/CMake/opencv-4.3.0/";
+const std::string FACE_DETECTOR_MODEL_PATH = "../model/haarcascade_frontalface_alt2.xml";
+const std::string TENSORFLOW_MODEL_PATH = "../model/tensorflow_model.pb";
+const std::string WINDOW_NAME = "Real-Time Facial Emotion Recognition";
 
 int main()
 {
+    // Initialise video frame that will be read from the camera
+    cv::Mat frame;
+    // Initialise all the required objects
+    Model model(TENSORFLOW_MODEL_PATH);
+    FaceDetector detector;
+    Image image_and_ROI;
 
-    // const std::string graph_def_filename = "model/saved_model.pb";
-    // const std::string checkpoint_dir = "model/variables";
-    // const std::string checkpoint_prefix = checkpoint_dir + "/variables"; 
-    // bool restore = DirectoryExists(checkpoint_dir);
+    // Initialise video capture object with default camera
+    cv::VideoCapture cap(0);	
+    //create a window with the window name
+    cv::namedWindow(WINDOW_NAME);
 
-    // // Setup global state for TensorFlow.
-    // tensorflow::port::InitMain(argv[0], &argc, &argv);
+    // Main Program Loop    
+    while (true)
+    {
+        // read a new frame from video 
+        bool bSuccess = cap.read(frame); 
 
-    // std::cout << "Loading graph\n";
-    // Model model(graph_def_filename);
+        // break the while loop if the frames cannot be captured
+        if (bSuccess == false) 
+        {
+            std::cout << "Video camera is disconnected. Stopping the program" << std::endl;
+            std::cin.get(); //Wait for any key press
+            break;
+        }
 
-    // std::vector<std::vector<float>> testdata({create_sinus_wave(0.0, 50), create_sinus_wave(1.0, 50)});
-    // std::cout << "Initial predictions\n";
+        //Run Face Detection and draw bounding box
+        image_and_ROI = detector.detectFaceAndDrawRoi(frame);
 
-    // model.Predict(testdata);
+        cv::Mat roi_image = image_and_ROI.getROI();
+    
+        if (!roi_image.empty()) {
+            // Preprocess image ready for model
+            image_and_ROI.preprocessROI();
+            // Make Prediction
+            std::string emotion_prediction = model.predict(image_and_ROI);
+            // Add prediction text to the output video frame
+            image_and_ROI = detector.printPredictionTexttoFrame(image_and_ROI, emotion_prediction);
+        }
 
-    // read data from txt
-    // image = ReadBoardFile("/Users/martincheung/Desktop/Learning Resources/C++ Nanodegree/CppND-Facial-Emotion-Recognition/data/test.txt");
-    // std::ifstream in("/Users/martincheung/Desktop/Learning Resources/C++ Nanodegree/CppND-Facial-Emotion-Recognition/data/test.txt");
-    // std::vector<std::vector<double>> image;
-    // if (in) {
-    //     std::string line;
-    //     while (std::getline(in, line)) {
-    //         std::stringstream sep(line);
-    //         std::string field;
-    //         image.push_back(std::vector<double>());
-    //         while (std::getline(sep, field, ',')) {
-    //             image.back().push_back(std::stod(field));
-    //         }
-    //     }
-    // }
-    // for (auto row : image) {
-    //     for (auto field : row) {
-    //         std::cout << field << ' ';
-    //     }
-    //     std::cout << '\n';
-    // }
+        cv::Mat output_frame = image_and_ROI.getFrame();
 
-    // // Thread 1: Perform Face Detect
-    // std::thread t1(&FaceDetector::detectFaceAndDrawRoi);
+        if (!output_frame.empty()) {
+            // Display the video frame to the window
+            imshow (WINDOW_NAME, output_frame);
+        } else {
+            // if the output frame is empty (ie. the facedetector didn't detect anything), just display the original video capture
+            imshow (WINDOW_NAME, frame);
+        }
 
-    // // Model Inference
-    // Model model;
+        // wait for for 10 ms until any key is pressed.  
+        // if the 'Esc' key is pressed, break the program loop
+        if (cv::waitKey(10) == 27)
+        {
+            std::cout << "Esc key is pressed by user. Stopping the program" << std::endl;
+            break;
+        }
 
-    // // Thread 2: Process ROI Images and Model Inference
-    // std::thread t2(&processImagesAndMakeInference, std::move(model));
-
-    // Thread 2: Visualise Video Feed and Prediction  
-    // Show camera + face detection - and if prediction exists, print text
-
-    std::string model_filename = "../model/saved_model_31052020.pb";
-
-    Model model(model_filename);
-    Camera cam("Martin's Laptop Camera", model);
-    cam.displayVideo();    
-
-    // cv::dnn::Net network = cv::dnn::readNetFromTensorflow("/Users/martincheung/Desktop/Learning Resources/C++ Nanodegree/CppND-Facial-Emotion-Recognition/model/saved_model.pb");
-
+    }
     
     return 0;
 

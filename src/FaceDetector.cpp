@@ -1,13 +1,11 @@
 #include <opencv2/opencv.hpp>
+
 #include "FaceDetector.h"
 #include "Image.h"
 
 FaceDetector::FaceDetector() {
-
      // Load the cascade classifier
-    cascade.load( OPENCV_PATH + "data/haarcascades/haarcascade_frontalface_alt.xml" ) ;
-    scale=1.5;
-
+    cascade.load(FACE_DETECTOR_MODEL_PATH) ;
 }
 
 Image FaceDetector::detectFaceAndDrawRoi( cv::Mat& frame) {
@@ -45,7 +43,7 @@ Image FaceDetector::detectFaceAndDrawRoi( cv::Mat& frame) {
 
 }
 
-Image FaceDetector::addPredictionTexttoFrame( Image image_and_ROI, std::string& emotion_prediction) {
+Image FaceDetector::printPredictionTexttoFrame( Image& image_and_ROI, std::string& emotion_prediction) {
 
     cv::Mat img = image_and_ROI.getFrame();
 
@@ -55,7 +53,7 @@ Image FaceDetector::addPredictionTexttoFrame( Image image_and_ROI, std::string& 
         // Write text prediction on bounding box
         cv::putText(img, //target image
                     emotion_prediction, //text - will take the output of the model.inference()
-                    cv::Point(r.x, r.y-10), //top-left position
+                    cv::Point(r.x, r.y-10), //top-left position of box
                     cv::FONT_HERSHEY_DUPLEX,
                     1.0,
                     CV_RGB(118, 185, 0), //font color

@@ -5,17 +5,17 @@
 #include <iostream>
 
 
-extern const std::string OPENCV_PATH;
-
 /**
- * Image class contains both the full frame of the image and the region of interest (ROI) of the image
- * 
+ * Image class contains the full frame of the image, the region of interest (ROI) of the image
+ * and the image that is ready for input to the model
  */
 class Image {
 
 public: 
-
-    Image();
+    //Constructor
+    Image() {};
+    //Destructor
+    ~Image() {};
 
     cv::Mat getROI();
     void setROI(cv::Mat& roi_image);
