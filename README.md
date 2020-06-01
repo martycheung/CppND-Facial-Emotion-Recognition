@@ -2,7 +2,7 @@
 
 ## Introduction
 This is the source code for a realtime facial emotion recognition application, which will be submitted for the capstone project of the Udacity C++ Nanodegree Program. Creating this app will involve the following steps:
-1. Build a deep learning model using Keras/Tensorflow in Python. Freeze and save the model graph and weights as a .pb file.
+1. Build a deep learning model using Keras/Tensorflow in Python. Freeze and save the model graph and weights as a .pb file. (See [here](https://github.com/martycheung/CppND-Facial-Emotion-Recognition/tree/master/model) for more details on how I built the model and the jupyter notebooks, but note that this was not in scope of the Udacity project)
 2. Capture video using the laptop webcam in real-time using OpenCV.
 3. Use the cascade face detector in OpenCV to detect a face and its location (for simplicity, one face will be detected at a time).
 4. Draw a rectangular bounding box around the face (region of interest).
@@ -20,7 +20,7 @@ In order to make the code more efficient, the C++ code will be run in 2 threads.
 4. 
 5. 
 
-## Dependencies for Running Locally
+## Dependencies for Running Locally (this project was run and tested on Mac)
 * cmake >= 3.7
   * All OSes: [click here for installation instructions](https://cmake.org/install/)
 * make >= 4.1 (Linux, Mac), 3.81 (Windows)
