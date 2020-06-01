@@ -59,13 +59,13 @@ int main()
 
         cv::Mat output_frame = image_and_ROI.getFrame();
 
-        if (!output_frame.empty()) {
-            // Display the video frame to the window
-            imshow (WINDOW_NAME, output_frame);
-        } else {
-            // if the output frame is empty (ie. the facedetector didn't detect anything), just display the original video capture
-            imshow (WINDOW_NAME, frame);
-        }
+        // if (!output_frame.empty()) {
+        //     // Display the video frame to the window
+        //     imshow (WINDOW_NAME, output_frame);
+        // } else {
+        //     // if the output frame is empty (ie. the facedetector didn't detect anything), just display the original video capture
+        //     imshow (WINDOW_NAME, frame);
+        // }
 
         // wait for for 10 ms until any key is pressed.  
         // if the 'Esc' key is pressed, break the program loop

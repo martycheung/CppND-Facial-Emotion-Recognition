@@ -17,8 +17,15 @@ std::string Model::predict(Image& image) {
     // this takes the region of interest image and then runs model inference
     cv::Mat roi_image = image.getModelInput();
 
+    cv::imwrite("test_image.jpg",roi_image);
+
     // Convert to blob
     cv::Mat blob = cv::dnn::blobFromImage(roi_image);
+
+    std::cout << roi_image.size() << std::endl; 
+
+    cv::namedWindow("WINDOW_NAME");
+    imshow("WINDOW_NAME", roi_image);
 
     // Pass blob to network
     this->network.setInput(blob);
@@ -35,7 +42,7 @@ std::string Model::predict(Image& image) {
     // Map classId to the class name string (ie. happy, sad, angry, disgust etc.)
     std::string class_name = this->classid_to_string.at(classId);
 
-    // std::cout << prob.reshape(1, 1) << std::endl;
+    std::cout << prob << std::endl;
 
     return class_name + " " + std::to_string(confidence);
 
