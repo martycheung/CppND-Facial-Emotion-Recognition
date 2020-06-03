@@ -15,22 +15,15 @@ Creating this app will involve the following steps:
 6. Deploy model using the OpenCV Deep Neural Networks (dnn) module to do model inference on the image in the bounding box.
 7. Display the video captured, along with the bounding box and the model prediction to the screen.
 
-In order to make the code more efficient, the C++ code will be run in 2 threads. The 1st thread will consist of the video capture, face detection and drawing bounding box and video display, while the 2nd thread  will consist of preprocessing the image and model prediction. The result of the model prediction string will be fed back to the video display when it is ready. The c++ code structure is shown in the diagram below:
-<img src="images/code_structure_threads.png"/>
-
-**TODO: Try to add multithreading to the program**
+## Future Work - Multithreading
+In future work, in order to make the code run faster and smoother, multithreading will be added. The idea is that the main thread would read the video frame and display the video, while 1 thread does face detection and 1 thread does image processing and model prediction.)
 
 ## Rubric Points Satisfied
 1. The project demonstrates an understanding of C++ functions and control structures.
-    - throughout project there are a variety of loops, functions etc.
 2. The project reads data from a file and process the data, or the program writes data to a file.
-    - the project reads in data from laptop camera, from external Tensorflow model and from an OpenCV face detector model.
 3. The project uses Object Oriented Programming techniques.
-    - Class structure consists of Camera, Image, FaceDetector and Model classes.
 4. Classes use appropriate access specifiers for class members.
-    - Class member variables and functions are explicitly specified as either public or private.
 5. Class constructors utilize member initialization lists.
-    - Yes for Model and Camera classes.
 6. Classes abstract implementation details from their interfaces.
 7. Classes encapsulate behavior.
 8. The project makes use of references in function declarations.
