@@ -2,8 +2,9 @@
 
 ## Introduction
 This is the source code for a realtime facial emotion recognition application, which will be submitted for the capstone project of the Udacity C++ Nanodegree Program. The application will capture video from the laptop camera and recognise the facial expression or emotion displayed by the person's face. The user will be able to see the facial emotion prediction displayed on their screen in real-time.
-
+<p align="center">
 <img src="images/app_demo.gif"/>
+</p>
 
 ## Detailed Description
 Creating this app will involve the following steps:
