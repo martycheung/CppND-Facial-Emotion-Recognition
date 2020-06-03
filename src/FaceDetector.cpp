@@ -25,9 +25,6 @@ Image FaceDetector::drawBoundingBoxOnFrame(cv::Mat& frame) {
 
     Image image_and_ROI;
 
-    // Save original video frame;
-    image_and_ROI.setOriginalFrame(frame);   
-
     // For each face detected, draw a bounding box
     if (faces.size() > 0) { 
         for (int i=0; i < faces.size(); i++) {

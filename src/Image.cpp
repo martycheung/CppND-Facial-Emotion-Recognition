@@ -34,7 +34,3 @@ void Image::preprocessROI() {
     this->_model_input_image.convertTo(this->_model_input_image, CV_32FC3, 1.f/255);
 
 }
-
-void Image::setOriginalFrame(cv::Mat& original_frame) {
-    this->_original_frame = original_frame;
-}
