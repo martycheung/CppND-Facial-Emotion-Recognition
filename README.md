@@ -10,7 +10,7 @@ This is the source code for a realtime facial emotion recognition application, w
 Creating this app will involve the following steps:
 1. Build a deep learning model using Keras/Tensorflow in Python. Freeze and save the model graph and weights as a .pb file. (See [here](https://github.com/martycheung/CppND-Facial-Emotion-Recognition/tree/master/model) for more details on how I built the model, the dataset and source code, but note that this was not in scope of the Udacity project)
 2. Capture video using the laptop webcam in real-time using OpenCV.
-3. Use the cascade face detector in OpenCV to detect each face and its location.
+3. Use the Haar Cascades face detector in OpenCV to detect each face and its location.
 4. Draw a rectangular bounding box around the face (region of interest).
 5. Preprocess the region of interest image to grayscale and resize to a 48x48 image, to match the input expected by the model.
 6. Deploy model using the OpenCV Deep Neural Networks (dnn) module to do model inference on the image in the bounding box.
