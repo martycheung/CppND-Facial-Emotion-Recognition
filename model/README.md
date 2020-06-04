@@ -1,7 +1,7 @@
 # Facial Emotion Recognition Model
 
 ## Overview
-A quick model building process was done in order to get an MVP Facial Emotion detector working quickly, since the main aim of this project was to showcase C++ skills, not ML or Python. This directory contains:
+The model building process was conducted very briefly, in order to get an MVP Facial Emotion detector working quickly, since the main aim of this project was to showcase C++ skills, not ML or Python. This directory contains:
 - *Facial Emotion Recognition Model - CNN.ipynb*, *Facial Emotion Recognition Model - Transfer.ipynb* Jupyter Notebooks where I prototyped and built the machine learning model
 - *tensorflow_model.pb*: the protobuf file that contains the tensorflow graph and the model weights
 - *haarcascade_frontalface_alt2.xml*: Haar Cascades model that was copied from the OpenCV library in "data/haarcascades/". Copied here so that it is easier to refer to the model path.
