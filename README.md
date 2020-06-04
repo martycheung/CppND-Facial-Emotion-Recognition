@@ -34,7 +34,7 @@ It hasn't been implemented here yet, but in future work, in order to make the co
 * make >= 4.1 (Linux, Mac), 3.81 (Windows)
 * gcc/g++ >= 5.4
 * OpenCV == 4.3.0 (other versions may work but they are untested)
-* tensorflow <= 1.15
+* tensorflow <= 1.15 (for python notebooks only)
 
 ## Basic Build Instructions
 1. Clone this repo.
