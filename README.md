@@ -1,7 +1,7 @@
 # Real-time Facial Emotion Recognition - CppND Capstone Project
 
 ## Introduction
-This is the source code for a realtime facial emotion recognition application, which will be submitted for the capstone project of the Udacity C++ Nanodegree Program. The application will capture video from the laptop camera and recognise the facial expression or emotion (eg. happy, sad, angry, disgust, surprise, fear, neutral) displayed by the person's face. The user will be able to see the facial emotion prediction displayed on their screen in real-time.
+This is the source code for a realtime facial emotion recognition application, which will be submitted for the capstone project of the Udacity C++ Nanodegree Program. The application will capture video from the laptop camera and recognise the facial expression or emotion from 7 categories (eg. happy, sad, angry, disgust, surprise, fear, neutral) displayed by the person's face. The user will be able to see the facial emotion prediction displayed on their screen in real-time.
 <p align="center">
 <img src="images/app_demo.gif"/>
 </p>
