@@ -13,7 +13,7 @@ The data was sourced from the FER2013 Facial Expression Recognition dataset, whi
 ## Model
 I tested 2 models for the FER2013 dataset:
 - Transfer learning using ResNet50 architecture and ImageNet weights - 44% test accuracy
-- Convolutional Neural Network - 65% test accuracy (potentially could train for more epochs as I hadn't started overfitting yet)
+- Convolutional Neural Network (similar to LeNet-5 architecture) - 65% test accuracy (potentially could train for more epochs as I hadn't started overfitting yet)
 
 ## Requirements
 - tensorflow <= 1.15 (Freezing Keras models does not properly work yet in tf 2.0)
