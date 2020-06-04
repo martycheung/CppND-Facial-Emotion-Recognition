@@ -16,4 +16,4 @@ I tested 2 models for the FER2013 dataset:
 - Convolutional Neural Network - 61% accuracy (potentially could train for more epochs as I wasn't overfitting much yet)
 
 ## Requirements
-- tensorflow <= 1.15 (freezing the model graph does not work on tf v2.0)
+- tensorflow <= 1.15 (Freezing Keras models does not properly work yet in tf 2.0)
