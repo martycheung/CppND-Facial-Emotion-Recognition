@@ -16,6 +16,10 @@ Creating this app will involve the following steps:
 6. Deploy model using the OpenCV Deep Neural Networks (dnn) module to do model inference on the image in the bounding box.
 7. Display the video captured, along with the bounding box and the model prediction to the screen.
 
+<p align="center">
+<img src="images/current_code_structure.png"/>
+</p>
+
 ## Future Work - Multithreading
 - It hasn't been implemented here yet, but in future work, in order to make the code run faster and smoother, I intend to add multithreading. The idea is that the main thread would read the video frame and display the video, while 1 thread does face detection and 1 thread does image processing and model prediction.
 - This code can be applied easily many other face classification type applications such as age or gender classification, facial recognition etc. All that needs to be done is to change the tensorflow model that is used (and it doesn't even have to be tensorflow, Caffe, PyTorch and others can be used).
