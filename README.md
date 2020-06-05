@@ -18,7 +18,7 @@ Creating this app will involve the following steps:
 
 ## Future Work - Multithreading
 - It hasn't been implemented here yet, but in future work, in order to make the code run faster and smoother, I intend to add multithreading. The idea is that the main thread would read the video frame and display the video, while 1 thread does face detection and 1 thread does image processing and model prediction.
-- This code can be applied easily many other face classification type applications such as age or gender classification. All that needs to be done is to change the tensorflow model that is used (and it doesn't even have to be tensorflow, Caffe, PyTorch and others can be used).
+- This code can be applied easily many other face classification type applications such as age or gender classification, facial recognition etc. All that needs to be done is to change the tensorflow model that is used (and it doesn't even have to be tensorflow, Caffe, PyTorch and others can be used).
 
 ## Rubric Points Satisfied
 1. The project demonstrates an understanding of C++ functions and control structures.
