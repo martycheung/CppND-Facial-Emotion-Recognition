@@ -7,6 +7,10 @@ This is the source code for a realtime facial emotion recognition application, w
 </p>
 
 ## Detailed Description
+Below is a diagram of the code structure:
+<p align="center">
+<img src="images/current_code_structure.png"/>
+</p>
 Creating this app will involve the following steps:
 1. Build a deep learning model using Keras/Tensorflow in Python. Freeze and save the model graph and weights as a .pb file. (See [here](https://github.com/martycheung/CppND-Facial-Emotion-Recognition/tree/master/model) for more details on how I built the model, the dataset and source code, but note that this was not in scope of the Udacity project)
 2. Capture video using the laptop webcam in real-time using OpenCV.
@@ -15,10 +19,6 @@ Creating this app will involve the following steps:
 5. Preprocess the region of interest image to grayscale and resize to a 48x48 image, to match the input expected by the model.
 6. Deploy model using the OpenCV Deep Neural Networks (dnn) module to do model inference on the image in the bounding box.
 7. Display the video captured, along with the bounding box and the model prediction to the screen.
-
-<p align="center">
-<img src="images/current_code_structure.png"/>
-</p>
 
 ## Future Work - Multithreading
 - It hasn't been implemented here yet, but in future work, in order to make the code run faster and smoother, I intend to add multithreading. The idea is that the main thread would read the video frame and display the video, while 1 thread does face detection and 1 thread does image processing and model prediction.
