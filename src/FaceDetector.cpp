@@ -50,17 +50,17 @@ Image FaceDetector::drawBoundingBoxOnFrame(cv::Mat& frame) {
 
 }
 
-Image FaceDetector::printPredictionTextToFrame( Image& image_and_ROI, std::string& emotion_prediction) {
+Image FaceDetector::printPredictionTextToFrame( Image& image_and_ROI, std::vector<std::string>& emotion_prediction) {
 
     cv::Mat img = image_and_ROI.getFrame();
-
+    
     if (faces.size() > 0) { 
         for (int i=0; i < faces.size(); i++) {
             cv::Rect r = faces[i];
 
             // Write text prediction on bounding box
             cv::putText(img, //target image
-                        emotion_prediction, //text - will take the output of the model.inference()
+                        emotion_prediction[i], //text - will take the output of the model.inference()
                         cv::Point(r.x, r.y-10), //top-left position of box
                         cv::FONT_HERSHEY_DUPLEX,
                         1.0,

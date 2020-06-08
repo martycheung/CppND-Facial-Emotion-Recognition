@@ -20,7 +20,7 @@ public:
     ~Model() {};
 
     // Model inference function takes image input and outputs the prediction label and the probability
-    std::string predict(Image& image);
+    std::vector<std::string> predict(Image& image);
 
 private:
     // Neural network model

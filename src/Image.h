@@ -18,9 +18,9 @@ public:
     ~Image() {};
 
     // Getter for the ROI image
-    cv::Mat getROI();
+    std::vector<cv::Mat> getROI();
     // Setter for the ROI image
-    void setROI(cv::Mat& roi_image);
+    void setROI(cv::Mat& roi);
     // Getter for the video frame
     cv::Mat getFrame();
     // Setter for the video frame
@@ -28,15 +28,15 @@ public:
     // Function to preprocess image for model input
     void preprocessROI();
     // Getter for the model input image
-    cv::Mat getModelInput();
+    std::vector<cv::Mat> getModelInput();
 
 private:
     // the full video frame
     cv::Mat _frame;
     // region of interest within the bounding box
-    cv::Mat _roi_image;
+    std::vector<cv::Mat> _roi_image;
     // preprocessed image ready for model
-    cv::Mat _model_input_image;
+    std::vector<cv::Mat>  _model_input_image;
 
 };
 

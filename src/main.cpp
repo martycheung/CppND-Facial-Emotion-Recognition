@@ -49,13 +49,14 @@ int main()
         // Draw bounding box to frame
         image_and_ROI = face_detector.drawBoundingBoxOnFrame(frame);
 
-        cv::Mat roi_image = image_and_ROI.getROI();
+        // Get Image ROIs
+        std::vector<cv::Mat> roi_image = image_and_ROI.getROI();
     
-        if (!roi_image.empty()) {
+        if (roi_image.size()>0) {
             // Preprocess image ready for model
             image_and_ROI.preprocessROI();
             // Make Prediction
-            std::string emotion_prediction = model.predict(image_and_ROI);
+            std::vector<std::string> emotion_prediction = model.predict(image_and_ROI);
             // Add prediction text to the output video frame
             image_and_ROI = face_detector.printPredictionTextToFrame(image_and_ROI, emotion_prediction);
         }

@@ -23,7 +23,7 @@ public:
     Image drawBoundingBoxOnFrame(cv::Mat& frame);
 
     // Function that print the predicted label to the image frame
-    Image printPredictionTextToFrame( Image& image_and_ROI, std::string& emotion_prediction);
+    Image printPredictionTextToFrame( Image& image_and_ROI, std::vector<std::string>& emotion_prediction);
 
 private:
     // Face detection classifier

@@ -13,36 +13,46 @@ Model::Model(const std::string& model_filename)
                          {6, "Neutral"}}) // Create a map from class id to the class labels
 {}
 
-std::string Model::predict(Image& image) {
+std::vector<std::string> Model::predict(Image& image) {
     // this takes the region of interest image and then runs model inference
-    cv::Mat roi_image = image.getModelInput();
+    std::vector<cv::Mat> roi_image = image.getModelInput();
 
-    // Convert to blob
-    cv::Mat blob = cv::dnn::blobFromImage(roi_image);
+    std::vector<std::string> emotion_prediction;
 
-    // Pass blob to network
-    this->network.setInput(blob);
+    if (roi_image.size() > 0) { 
+        for (int i=0; i < roi_image.size(); i++) {
+            // Convert to blob
+            cv::Mat blob = cv::dnn::blobFromImage(roi_image[i]);
 
-    // Forward pass on network    
-    cv::Mat prob = this->network.forward();
+            // Pass blob to network
+            this->network.setInput(blob);
 
-    // Sort the probabilities and rank the indicies
-    cv::Mat sorted_probabilities;
-    cv::Mat sorted_ids;
-    cv::sort(prob.reshape(1, 1), sorted_probabilities, cv::SORT_DESCENDING);
-    cv::sortIdx(prob.reshape(1, 1), sorted_ids, cv::SORT_DESCENDING);
+            // Forward pass on network    
+            cv::Mat prob = this->network.forward();
 
-    // Get top probability and top class id
-    float top_probability = sorted_probabilities.at<float>(0);
-    int top_class_id = sorted_ids.at<int>(0);
+            // Sort the probabilities and rank the indicies
+            cv::Mat sorted_probabilities;
+            cv::Mat sorted_ids;
+            cv::sort(prob.reshape(1, 1), sorted_probabilities, cv::SORT_DESCENDING);
+            cv::sortIdx(prob.reshape(1, 1), sorted_ids, cv::SORT_DESCENDING);
 
-    // Map classId to the class name string (ie. happy, sad, angry, disgust etc.)
-    std::string class_name = this->classid_to_string.at(top_class_id);
+            // Get top probability and top class id
+            float top_probability = sorted_probabilities.at<float>(0);
+            int top_class_id = sorted_ids.at<int>(0);
 
-    // Prediction result string to print
-    std::string result_string = class_name + ": " + std::to_string(top_probability * 100) + "%";
+            // Map classId to the class name string (ie. happy, sad, angry, disgust etc.)
+            std::string class_name = this->classid_to_string.at(top_class_id);
 
-    return result_string;
+            // Prediction result string to print
+            std::string result_string = class_name + ": " + std::to_string(top_probability * 100) + "%";
+
+            // Put on end of result vector
+            emotion_prediction.push_back(result_string);
+
+        }
+    }
+
+    return emotion_prediction;
 
 }
 
