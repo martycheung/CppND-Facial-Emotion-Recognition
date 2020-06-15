@@ -15,7 +15,6 @@ I tested 2 models for the FER2013 dataset:
 - Transfer learning using ResNet50 architecture and ImageNet weights - 44% test accuracy
 - Convolutional Neural Network (similar to LeNet-5 architecture) - 65% test accuracy (potentially could train for more epochs as I hadn't started overfitting yet)
 
-* Addition point for future work: In this model I forgot to do image normalisation. I only standardised pixels between 0-1 and forgot to subtract mean and divide by standard deviation. For the transfer learning case, I should have used the same mean and std as the Imagenet data for my images, and for the CNN case I should have used the mean and std from the training set. Also save the mean and std and apply to the inference images from my laptop, this should improve performance.
 * Another thing to try is to add a batch normalisation layer after each CNN layer - potentially improve training time and get some benefit of regularisation (may or may not be useful).
 
 ## Requirements
